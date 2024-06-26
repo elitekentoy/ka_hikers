@@ -17,9 +17,14 @@ class KaHikersRoleManipulation {
 			"VALUES "
 			"("
 				"${role.id}, "
-				"${role.name}, "
-				"${role.description}"
+				"'${role.name}', "
+				"'${role.description}'"
 			")";
+	}
+
+	static String deleteAll()
+	{
+		return "DELETE FROM ${KaHikersTables.ROLE}";
 	}
 
 }

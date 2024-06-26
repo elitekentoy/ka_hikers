@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../commons/controller/initializer_controller.dart';
 import '../../commons/widgets/navigation/custo_bottom_nav_bar.dart';
 import 'controller/rootapp_controller.dart';
 
@@ -12,6 +13,7 @@ class RootApp extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
+		Get.put(InitializerController());
 		final controller = Get.put(RootAppController());
 		return Scaffold(
 			body: SafeArea(
