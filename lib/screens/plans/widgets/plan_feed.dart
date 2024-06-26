@@ -18,7 +18,7 @@ class PlanFeed extends StatelessWidget {
 					itemCount: controller.plans.length,
 					itemBuilder: (context, index) {
 						final plan = controller.plans[index];
-						return PlanTile(plan: plan);
+						return PlanTile(event: plan);
 					},
 				);
 			}),

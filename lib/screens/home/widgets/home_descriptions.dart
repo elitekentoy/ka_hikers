@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../commons/models/plan_model.dart';
+import '../../../commons/models/event_model.dart';
 import '../../../commons/themes/ka_hikers_themes.dart';
 
 class HomeDescriptions extends StatelessWidget {
 	const HomeDescriptions({super.key, required this.plan});
-	final PlanModel plan;
+	final EventModel plan;
 
 	@override
 	Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class HomeDescriptions extends StatelessWidget {
 			children: [
 				Expanded(
 					child: Text(
-						plan.title,
+						plan.eventName,
 						style: blackTextStyle(fontSize: 24, fontWeight: FontWeight.w500),
 					),
 				),
