@@ -1,4 +1,7 @@
 
+
+import '../constants/ka_hikers_database_details.dart';
+
 class Role {
 
 	final int id;
@@ -10,5 +13,14 @@ class Role {
 		required this.name,
 		required this.description
 	});
+
+	factory Role.fromMap({required Map<String, dynamic> map})
+	{
+		return Role(
+			id: map[KaHikersColumns.ID], 
+			name: map[KaHikersColumns.NAME], 
+			description: map[KaHikersColumns.DESCRIPTION],
+		);
+	}
 	
 }
