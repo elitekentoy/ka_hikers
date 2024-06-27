@@ -1,6 +1,8 @@
 
 
 
+import 'package:ka_hikers/commons/models/event_model.dart';
+
 import '../../../../commons/constants/ka_hikers_database_details.dart';
 import '../../../../commons/models/hikers_model.dart';
 
@@ -28,5 +30,15 @@ class HikerManipulation {
 	{
 		return "DELETE FROM ${KaHikersTables.HIKER} "
 			"WHERE ${KaHikersColumns.USER_ID} = $userId";
+	}
+	
+	static String updateActiveByEventAndUserId ({required EventModel event, required int target, required String userId})
+	{
+		return "UPDATE ${KaHikersTables.HIKER} "
+			"SET "
+				"${KaHikersColumns.ACTIVE} = $target "
+			"WHERE "
+				"${KaHikersColumns.EVENT_ID} = '${event.id}' AND "
+				"${KaHikersColumns.USER_ID} = '$userId' ";
 	}
 }

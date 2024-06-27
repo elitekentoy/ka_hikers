@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../../commons/models/event_model.dart';
 import '../../../commons/themes/ka_hikers_themes.dart';
@@ -17,7 +18,7 @@ class HomeDescriptions extends StatelessWidget {
 				Expanded(
 					child: Text(
 						plan.eventName,
-						style: blackTextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+						style: blackTextStyle(fontSize: 30, fontWeight: FontWeight.w500),
 					),
 				),
 				Expanded(
@@ -25,11 +26,11 @@ class HomeDescriptions extends StatelessWidget {
 						children: [
 							Text(
 									plan.meetupPlace,
-									style: blackTextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+									style: blackTextStyle(fontSize: 18, fontWeight: FontWeight.normal),
 							),
 							Text(
-									plan.date.toString(),
-									style: blackTextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+									DateFormat.MMMMEEEEd().format(plan.date),
+									style: blackTextStyle(fontSize: 12, fontWeight: FontWeight.normal),
 								),
 						],
 					),
@@ -40,11 +41,11 @@ class HomeDescriptions extends StatelessWidget {
 						const Icon(
 							Icons.person,
 							color: Colors.grey,
-							size: 14,
+							size: 18,
 						),
 						Text(
-							"${plan.participantsCount ?? 0}",
-							style: blackTextStyle(fontSize: 12, fontWeight: FontWeight.w200),
+							"${plan.participantsCount}",
+							style: blackTextStyle(fontSize: 14, fontWeight: FontWeight.w200),
 						),
 					]
 				)

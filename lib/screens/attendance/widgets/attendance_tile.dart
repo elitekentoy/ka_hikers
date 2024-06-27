@@ -1,10 +1,12 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:ka_hikers/commons/constants/ka_hikers_colors.dart';
+import 'package:get/get.dart';
 
+import '../../../commons/constants/ka_hikers_colors.dart';
 import '../../../commons/models/user_model.dart';
 import '../../../commons/themes/ka_hikers_themes.dart';
+import '../controller/attendance_controller.dart';
 
 
 class AttendanceTile extends StatelessWidget {
@@ -14,6 +16,7 @@ class AttendanceTile extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
+		final controller = Get.find<AttendanceController>();
 		return ListTile(
 			tileColor: active ? KaHikersColors.PALE_GREEN : null,
 			leading: user.image == null
@@ -31,6 +34,10 @@ class AttendanceTile extends StatelessWidget {
 				user.nickname,
 				style: blackTextStyle(fontSize: 8, fontWeight: FontWeight.normal),
 			),
+			onTap: () async {
+				await controller.updateActive(user: user, active: active);
+				await controller.reloadData();
+			},
 		);
 	}
 }

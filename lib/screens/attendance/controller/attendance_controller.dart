@@ -23,9 +23,16 @@ class AttendanceController extends GetxController {
 		super.onInit();
 	}
 
+	Future<void> updateActive({required UserModel user, required bool active}) async
+	{
+		// reverse its active
+		await HikerDatabaseService.updateActiveByEventAndUserId(event: event, target: active ? 0 : 1, userId: user.id);
+	}
+
 	Future<void> reloadData() async
 	{
 		attendees.clear();
+		hikers.clear();
 		loadData();
 	}
 
@@ -34,6 +41,7 @@ class AttendanceController extends GetxController {
 		hikers.addAll(await HikerDatabaseService.findAllByEventId(eventId: event.id));
 		final userIds = hikers.map((each) => each.userId).toList();
 		attendees.addAll(await UsersDatabaseService.findAllByUserIdIn(userIds: userIds));
+		update();
 	}
 
 	bool isHikerActive({required String userId})

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ka_hikers/commons/themes/ka_hikers_themes.dart';
 
 import '../../attendance/attendance.dart';
 
@@ -18,8 +19,9 @@ class HomeActions extends StatelessWidget {
 					onPressed: () {
 						Get.to(() => const Attendance());
 					}, 
-					child: const Text(
-						"Attendance"
+					child: Text(
+						"Attendance",
+						style: blackTextStyle(fontSize: 14, fontWeight: FontWeight.w200),
 					),
 				)
 			],
