@@ -20,7 +20,7 @@ class HikerManipulation {
 				"'${hiker.userId}', "
 				"'${hiker.eventId}', "
 				"${hiker.roleId}, "
-				"${hiker.active}, "
+				"${hiker.active} "
 			")";
 	}
 

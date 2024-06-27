@@ -1,6 +1,6 @@
 
-import 'package:get/get.dart';
-import 'package:ka_hikers/commons/constants/ka_hikers_database_details.dart';
+
+import '../constants/ka_hikers_database_details.dart';
 
 class EventModel {
 
@@ -11,7 +11,7 @@ class EventModel {
 	final String meetupPlace;
 	final String image;
 	final String? description;
-	final int? participantsCount;
+	final int participantsCount;
 
 	EventModel({
 		required this.id,
@@ -21,7 +21,7 @@ class EventModel {
 		required this.meetupPlace,
 		required this.image,
 		this.description,
-		this.participantsCount,
+		required this.participantsCount,
 	});
 
 	factory EventModel.fromMap({required Map<String, dynamic> map})
@@ -32,6 +32,7 @@ class EventModel {
 			date: DateTime.parse(map[KaHikersColumns.DATE]), 
 			meetupPlace: map[KaHikersColumns.MEETUP_PLACE], 
 			image: map[KaHikersColumns.IMAGE],
+			participantsCount: map[KaHikersColumns.PARTICIPANTS_COUNT],
 		);
 	}
 

@@ -16,6 +16,8 @@ class EventDatabaseService {
 
 	static Future<void> updateParticipantsCountBy ({required EventModel event, required int target}) async
 	{
+		print("from event service: ${event.id}, $target");
+		print(KaHikersEventManipulation.updateParticipantsCountBy(event: event, target: target));
 		await _database().then((db) => db.rawUpdate(KaHikersEventManipulation.updateParticipantsCountBy(event: event, target: target)));
 	}
 

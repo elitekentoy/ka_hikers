@@ -37,6 +37,6 @@ class KaHikersEventManipulation {
 			"SET "
 				"${KaHikersColumns.PARTICIPANTS_COUNT} = $target "
 			"WHERE "
-				"${KaHikersColumns.ID} = ${event.id}";
+				"${KaHikersColumns.ID} = '${event.id}'";
 	}
 }

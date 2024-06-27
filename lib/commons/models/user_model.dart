@@ -1,5 +1,7 @@
 
-import 'package:ka_hikers/commons/constants/ka_hikers_database_details.dart';
+
+import '../constants/ka_hikers_database_details.dart';
+import '../function/ka_hikers_functions.dart';
 
 class UserModel {
 
@@ -30,6 +32,18 @@ class UserModel {
 			nickname: map[KaHikersColumns.NICKNAME], 
 			facebook: map[KaHikersColumns.FACEBOOK], 
 			dateCreated: DateTime.parse(map[KaHikersColumns.DATE_CREATED]),
+		);
+	}
+
+	factory UserModel.create({required String firstName, required String lastName, required String nickname, required String facebook})
+	{
+		return UserModel(
+			id: KaHikersFunctions.generateUID(), 
+			firstName: firstName, 
+			lastName: lastName, 
+			nickname: nickname, 
+			facebook: facebook, 
+			dateCreated: DateTime.now(),
 		);
 	}
 

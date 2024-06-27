@@ -14,11 +14,19 @@ class AttendanceFeed extends StatelessWidget {
 	Widget build(BuildContext context) {
 		final controller = Get.find<AttendanceController>();
 		return Obx((){
+			if (controller.attendees.isEmpty) {
+				return const Center(
+					child: Text(
+						"Does not contain any Hikers...",
+					),
+				);
+			}
+
 			return ListView.builder(
 				itemCount: controller.attendees.length,
 				itemBuilder: (context, index) {
 					final user = controller.attendees[index];
-					return AttendanceTile(user: user, active: index % 2 == 1);
+					return AttendanceTile(user: user, active: controller.isHikerActive(userId: user.id));
 				},
 			);
 		});

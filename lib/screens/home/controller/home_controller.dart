@@ -10,7 +10,19 @@ class HomeController extends GetxController {
 
 	@override
 	void onInit() async {
-		events.addAll(await EventDatabaseService.findAll());
+		loadData();
+		print(events.map((each) => "${each.id} ${each.eventName} ${each.participantsCount}"));
 		super.onInit();
+	}
+
+	Future<void> reloadData() async
+	{
+		events.clear();
+		events.addAll(await EventDatabaseService.findAll());
+	}
+
+	Future<void> loadData() async
+	{
+		events.addAll(await EventDatabaseService.findAll());
 	}
 }

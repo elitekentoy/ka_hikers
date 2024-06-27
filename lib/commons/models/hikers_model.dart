@@ -22,7 +22,17 @@ class HikersModel {
 			userId: map[KaHikersColumns.USER_ID], 
 			eventId: map[KaHikersColumns.EVENT_ID], 
 			roleId: map[KaHikersColumns.ROLE_ID], 
-			active: int.parse(map[KaHikersColumns.USER_ID]) == 1, 
+			active: map[KaHikersColumns.ACTIVE] == 1, 
+		);
+	}
+
+	factory HikersModel.create({required String userId, required String eventId})
+	{
+		return HikersModel(
+			userId: userId, 
+			eventId: eventId, 
+			roleId: 3, 
+			active: false,
 		);
 	}
 

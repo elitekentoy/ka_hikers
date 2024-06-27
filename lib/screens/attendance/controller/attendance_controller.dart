@@ -1,6 +1,7 @@
 
 
 import 'package:get/get.dart';
+import 'package:ka_hikers/commons/models/hikers_model.dart';
 
 import '../../../commons/models/event_model.dart';
 import '../../../commons/models/user_model.dart';
@@ -14,12 +15,30 @@ class AttendanceController extends GetxController {
 	AttendanceController({required this.event});
 
 	final attendees = <UserModel>[].obs;
+	final hikers = <HikersModel>[].obs;
 
 	@override
 	void onInit() async {
-		final hikers = await HikerDatabaseService.findAllByEventId(eventId: event.id);
+		reloadData();
+		super.onInit();
+	}
+
+	Future<void> reloadData() async
+	{
+		attendees.clear();
+		loadData();
+	}
+
+	Future<void> loadData() async
+	{
+		hikers.addAll(await HikerDatabaseService.findAllByEventId(eventId: event.id));
 		final userIds = hikers.map((each) => each.userId).toList();
 		attendees.addAll(await UsersDatabaseService.findAllByUserIdIn(userIds: userIds));
-		super.onInit();
+	}
+
+	bool isHikerActive({required String userId})
+	{
+		final data = hikers.firstWhereOrNull((each) => each.userId == userId);
+		return data == null ? false : data.active;
 	}
 }
