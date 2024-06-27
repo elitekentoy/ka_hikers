@@ -11,7 +11,7 @@ class HomeImage extends StatelessWidget {
 		return Container(
 			decoration: BoxDecoration(
 				borderRadius: BorderRadius.circular(25),
-				image: DecorationImage(image: NetworkImage(image))
+				image: DecorationImage(image: AssetImage(image))
 			),
 			clipBehavior: Clip.hardEdge,
 		);

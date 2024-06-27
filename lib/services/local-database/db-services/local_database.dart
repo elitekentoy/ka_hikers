@@ -19,11 +19,18 @@ class LocalDatabase {
 		onCreate: (Database database, int version) async {
 			// add database creation here
 			await database.execute(KaHikersDefinition.CREATE_ROLES_TABLE);
+			await database.execute(KaHikersDefinition.CREATE_EVENT_TABLE);
 		});
 	}
 
 	static Future<void> deleteKaHikersDatabase() async 
 	{
 		await deleteDatabase(KA_HIKERS_LOCAL_DB_PATH);
+	}
+
+	static Future<void> printDatabases() async
+	{
+		print(await getFullPath());
+		print (await getDatabase().then((db) => db.rawQuery("SELECT * FROM sqlite_master")));
 	}
 }

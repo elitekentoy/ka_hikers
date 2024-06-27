@@ -13,4 +13,15 @@ class KaHikersDefinition {
 			"${KaHikersColumns.DESCRIPTION} TEXT"
 		")";
 
+	static const String CREATE_EVENT_TABLE = "CREATE TABLE ${KaHikersTables.EVENT}"
+		"("
+				"${KaHikersColumns.ID} TEXT PRIMARY KEY, "
+				"${KaHikersColumns.EVENT_NAME} TEXT, "
+				"${KaHikersColumns.DATE} TEXT, "
+				"${KaHikersColumns.LOCATION} TEXT, "
+				"${KaHikersColumns.DESCRIPTION} TEXT, "
+				"${KaHikersColumns.MEETUP_PLACE} TEXT, "
+				"${KaHikersColumns.IMAGE} TEXT, "
+				"${KaHikersColumns.PARTICIPANTS_COUNT} INTEGER"
+			")";
 }

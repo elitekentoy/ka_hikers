@@ -10,7 +10,7 @@ class PlanTile extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 		return ListTile(
-			leading: Image.network(event.image),
+			leading: Image.asset(event.image),
 			title: Text(
 						event.eventName,
 						style: blackTextStyle(fontSize: 18, fontWeight: FontWeight.w400),
