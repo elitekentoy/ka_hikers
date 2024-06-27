@@ -12,7 +12,7 @@ class HomeBody extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
-		final plan = DUMMY_PLANS.first;
+		final event = DUMMY_PLANS.first;
 		return Padding(
 			padding: const EdgeInsets.symmetric(horizontal: 20),
 			child: Column(
@@ -20,11 +20,11 @@ class HomeBody extends StatelessWidget {
 				children: [
 					Expanded(
 						flex: 3,
-						child: HomeImage(image: plan.image),
+						child: HomeImage(image: event.image),
 					),
 					Expanded(
 						flex: 2,
-						child: HomeDescriptions(plan: plan),
+						child: HomeDescriptions(plan: event),
 					),
 					const Expanded(
 						flex: 1,

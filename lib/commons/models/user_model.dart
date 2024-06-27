@@ -7,6 +7,7 @@ class UserModel {
 	final String nickname;
 	final String facebook;
 	final DateTime dateCreated;
+	final String? image;
 
 	UserModel({
 		required this.id,
@@ -14,7 +15,8 @@ class UserModel {
 		required this.lastName,
 		required this.nickname,
 		required this.facebook,
-		required this.dateCreated
+		required this.dateCreated,
+		this.image,
 	});
 
 }

@@ -1,9 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:ka_hikers/commons/models/role_model.dart';
+import 'package:get/get.dart';
 
-import '../../../services/local-database/db-services/roles_database_service.dart';
+import '../../attendance/attendance.dart';
+
 
 class HomeActions extends StatelessWidget {
 	const HomeActions({super.key});
@@ -14,10 +15,8 @@ class HomeActions extends StatelessWidget {
 			mainAxisAlignment: MainAxisAlignment.center,
 			children: [
 				ElevatedButton(
-					onPressed: () async {
-						print("im clicked");
-						final List<Role> data = await RolesDatabaseService.findAll();
-						data.forEach((each) => print(each.name));
+					onPressed: () {
+						Get.to(() => const Attendance());
 					}, 
 					child: const Text(
 						"Attendance"
