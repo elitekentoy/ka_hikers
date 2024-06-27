@@ -43,7 +43,7 @@ class HomeDescriptions extends StatelessWidget {
 							size: 14,
 						),
 						Text(
-							"${plan.participantsCount}",
+							"${plan.participantsCount ?? 0}",
 							style: blackTextStyle(fontSize: 12, fontWeight: FontWeight.w200),
 						),
 					]

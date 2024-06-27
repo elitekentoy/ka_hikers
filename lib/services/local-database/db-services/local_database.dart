@@ -20,6 +20,8 @@ class LocalDatabase {
 			// add database creation here
 			await database.execute(KaHikersDefinition.CREATE_ROLES_TABLE);
 			await database.execute(KaHikersDefinition.CREATE_EVENT_TABLE);
+			await database.execute(KaHikersDefinition.CREATE_USER_TABLE);
+			await database.execute(KaHikersDefinition.CREATE_HKERS_TABLE);
 		});
 	}
 

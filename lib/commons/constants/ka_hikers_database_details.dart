@@ -9,6 +9,8 @@ class KaHikersTables {
 
 	static const ROLE = "ROLE";
 	static const EVENT = "EVENT";
+	static const USER = "USER";
+	static const HIKER = "HIKER";
 
 }
 
@@ -28,5 +30,18 @@ class KaHikersColumns {
 	static const MEETUP_PLACE = "meetupPlace";
 	static const PARTICIPANTS_COUNT = "participantsCount";
 	static const IMAGE = "image";
+
+	// user
+	static const FIRST_NAME = "firstName";
+	static const LAST_NAME = "lastName";
+	static const NICKNAME = "nickname";
+	static const FACEBOOK = "facebook";
+	static const DATE_CREATED = "dateCreated";
+
+	// hiker
+	static const USER_ID = "userId";
+	static const EVENT_ID = "eventId";
+	static const ROLE_ID = "roleId";
+	static const ACTIVE = "active";
 
 }

@@ -1,8 +1,8 @@
 
 import 'package:get/get.dart';
-import 'package:ka_hikers/services/local-database/db-services/local_database.dart';
 
-import '../../services/local-database/db-services/event_database.service.dart';
+import '../../services/local-database/db-services/event_database_service.dart';
+import '../../services/local-database/db-services/local_database.dart';
 import '../../services/local-database/db-services/roles_database_service.dart';
 import '../data/plans_data.dart';
 import '../data/roles_data.dart';

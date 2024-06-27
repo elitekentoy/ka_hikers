@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../commons/data/plans_data.dart';
+import '../home/controller/home_controller.dart';
 import 'controller/attendance_controller.dart';
 import 'widgets/attendance_feed.dart';
 import 'widgets/attendance_floating_button.dart';
@@ -14,7 +14,8 @@ class Attendance extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
-		Get.put(AttendanceController(event: DUMMY_PLANS.first));
+		final homeController = Get.find<HomeController>();
+		Get.put(AttendanceController(event: homeController.events.first));
 		return const Scaffold(
 			body: SafeArea(
 				child: AttendanceFeed(),
