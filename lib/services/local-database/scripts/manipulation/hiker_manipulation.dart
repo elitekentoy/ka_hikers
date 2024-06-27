@@ -29,7 +29,7 @@ class HikerManipulation {
 	static String deleteByUserId ({required String userId})
 	{
 		return "DELETE FROM ${KaHikersTables.HIKER} "
-			"WHERE ${KaHikersColumns.USER_ID} = $userId";
+			"WHERE ${KaHikersColumns.USER_ID} = '$userId'";
 	}
 	
 	static String updateActiveByEventAndUserId ({required EventModel event, required int target, required String userId})

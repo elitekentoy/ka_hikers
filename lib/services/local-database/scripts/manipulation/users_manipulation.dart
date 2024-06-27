@@ -34,6 +34,6 @@ class UsersManipulation {
 	static String deleteByUserId ({required String userId})
 	{
 		return "DELETE FROM ${KaHikersTables.USER} "
-			"WHERE ${KaHikersColumns.ID} = $userId";
+			"WHERE ${KaHikersColumns.ID} = '$userId'";
 	}
 }

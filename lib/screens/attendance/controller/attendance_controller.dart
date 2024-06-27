@@ -2,6 +2,7 @@
 
 import 'package:get/get.dart';
 import 'package:ka_hikers/commons/models/hikers_model.dart';
+import 'package:ka_hikers/services/local-database/db-services/event_database_service.dart';
 
 import '../../../commons/models/event_model.dart';
 import '../../../commons/models/user_model.dart';
@@ -27,6 +28,16 @@ class AttendanceController extends GetxController {
 	{
 		// reverse its active
 		await HikerDatabaseService.updateActiveByEventAndUserId(event: event, target: active ? 0 : 1, userId: user.id);
+	}
+
+	Future<void> deleteHiker({required UserModel user}) async
+	{
+		// delete hiker record
+		await HikerDatabaseService.deleteByUserId(userId: user.id);
+		// delete user
+		await UsersDatabaseService.delete(user: user);
+		// update participants count
+		await EventDatabaseService.updateParticipantsCountBy(event: event, target: event.participantsCount - 1);
 	}
 
 	Future<void> reloadData() async
